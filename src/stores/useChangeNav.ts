@@ -5,7 +5,7 @@ type Tab = {
     title: string
 }
 
-const TABS: Tab[] = [
+const NAVS: Tab[] = [
     {
         id: "note",
         title: "Note",
@@ -16,13 +16,13 @@ const TABS: Tab[] = [
     }
 ]
 
-const useChangeTab = defineStore('tabs', {
+const useChangeTab = defineStore('navs', {
     state: () => ({
       position: 0
     }),
     getters: {
-        getId: (state) => TABS[state.position].id,
-        getTitle: (state) => TABS[state.position].title
+        getId: (state) => NAVS[state.position].id,
+        getTitle: (state) => NAVS[state.position].title
     },
     actions: {
         setPosition(pos: number) {

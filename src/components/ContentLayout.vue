@@ -16,7 +16,7 @@ const tabs = ref(10);
           class="px-4 py-1 text-white border-r border-gray-700 hover:bg-gray-700 cursor-pointer flex flex-row justify-between no-selection"
         >
           <div>Untitle</div>
-          <div class="font-bold">X</div>
+          <div>x</div>
         </div>
       </div>
       <div class="flex-1 h-full bg-gray-700">
