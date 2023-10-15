@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import AppIcon from "../assets/app.svg";
 import NoteIcon from "../assets/note.svg";
-import useChangeTab from "../stores/useChangeNav";
+import useNav from "../stores/useNav";
 
-const tabs = useChangeTab();
+const nav = useNav();
 </script>
 
 <template>
@@ -11,10 +11,10 @@ const tabs = useChangeTab();
     <div class="flex flex-col justify-center">
       <div
         class="py-3 cursor-pointer"
-        :class="tabs.position == 0 ? 'bg-slate-600' : ''"
+        :class="nav.position == 0 ? 'bg-slate-600' : ''"
         @click="
           () => {
-            tabs.setPosition(0);
+            nav.setPosition(0);
           }
         "
       >
@@ -22,10 +22,10 @@ const tabs = useChangeTab();
       </div>
       <div
         class="py-3 cursor-pointer"
-        :class="tabs.position == 1 ? 'bg-slate-600' : ''"
+        :class="nav.position == 1 ? 'bg-slate-600' : ''"
         @click="
           () => {
-            tabs.setPosition(1);
+            nav.setPosition(1);
           }
         "
       >

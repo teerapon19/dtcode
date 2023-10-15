@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import useChangeTab from "../stores/useChangeNav";
+import useNav from "../stores/useNav";
+import useTab from "../stores/useTab";
 
 const bar = ref<HTMLElement>();
 const barSize = ref(0);
@@ -20,7 +21,8 @@ const dragMove = (de: DragEvent) => {
   }
 };
 
-const tab = useChangeTab();
+const nav = useNav();
+const tab = useTab();
 </script>
 
 <template>
@@ -29,11 +31,16 @@ const tab = useChangeTab();
     class="h-screen w-48 relative bg-gray-900 no-selection overflow-hidden"
   >
     <div class="flex flex-col text-white">
-      <h6 class="p-3 text-sm uppercase">{{ tab.getTitle }}</h6>
+      <h6 class="p-3 text-sm uppercase">{{ nav.getTitle }}</h6>
       <div class="p-3 text-sm">
-        <div class="mb-2 cursor-pointer">JSON format/validate</div>
-        <div class="mb-2 cursor-pointer">JWT Debugger</div>
-        <div class="mb-2 cursor-pointer">Remove empty</div>
+        <!-- <div class="mb-2 cursor-pointer">JSON format/validate</div>
+        <div class="mb-2 cursor-pointer">JWT Debugger</div> -->
+        <div
+          @click="tab.createNewTab('Remove Empty', 'remove_empty')"
+          class="mb-2 cursor-pointer"
+        >
+          Remove Empty
+        </div>
       </div>
     </div>
     <div
